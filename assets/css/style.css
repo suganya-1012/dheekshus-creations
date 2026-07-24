@@ -1,1 +1,200 @@
+/* ==========================================
+   Dheekshu's Creations
+   Main Styles
+========================================== */
 
+:root{
+    --primary:#d63384;
+    --secondary:#fce4ec;
+    --background:#fffafc;
+    --text:#333;
+    --white:#ffffff;
+    --shadow:0 8px 25px rgba(0,0,0,.08);
+    --radius:18px;
+}
+
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:var(--background);
+    color:var(--text);
+}
+
+h1,h2,h3,h4,h5{
+    font-family:'Playfair Display',serif;
+}
+
+/* Navbar */
+
+.navbar{
+    padding:15px 0;
+}
+
+.brand-logo{
+    color:var(--primary)!important;
+    font-size:1.7rem;
+    font-weight:700;
+}
+
+.nav-link{
+    margin-left:18px;
+    font-weight:500;
+}
+
+.nav-link:hover{
+    color:var(--primary)!important;
+}
+
+.btn-cart{
+    background:var(--primary);
+    color:white;
+    border-radius:30px;
+    padding:10px 18px;
+}
+
+.btn-cart:hover{
+    background:#b81d6c;
+    color:white;
+}
+
+/* Hero */
+
+.hero{
+    padding:80px 0;
+}
+
+.tagline{
+    background:#fde7ef;
+    color:var(--primary);
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:30px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:3.2rem;
+    color:var(--primary);
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:1.1rem;
+    color:#666;
+    margin-bottom:30px;
+}
+
+.btn-shop{
+    background:var(--primary);
+    color:white;
+    padding:14px 35px;
+    border-radius:40px;
+    font-weight:600;
+}
+
+.btn-shop:hover{
+    background:#b81d6c;
+    color:white;
+}
+
+.hero-image{
+    border-radius:25px;
+    box-shadow:var(--shadow);
+}
+
+/* Section */
+
+.section-title{
+    text-align:center;
+    color:var(--primary);
+    margin-bottom:45px;
+}
+
+/* Categories */
+
+.category-card{
+    background:white;
+    border-radius:var(--radius);
+    padding:35px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    transition:.3s;
+    cursor:pointer;
+    font-size:3rem;
+}
+
+.category-card:hover{
+    transform:translateY(-8px);
+}
+
+.category-card h5{
+    margin-top:15px;
+    color:var(--primary);
+}
+
+/* Products */
+
+.product-card{
+    background:white;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    transition:.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+}
+
+.product-image{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.product-body{
+    padding:20px;
+}
+
+.product-title{
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+.product-price{
+    font-weight:bold;
+    font-size:1.2rem;
+    margin-bottom:15px;
+}
+
+.btn-add-cart{
+    width:100%;
+    background:var(--primary);
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:30px;
+}
+
+.btn-add-cart:hover{
+    background:#b81d6c;
+}
+
+/* Footer */
+
+footer{
+    background:white;
+    padding:50px 0;
+    margin-top:60px;
+}
+
+footer h3{
+    color:var(--primary);
+}
