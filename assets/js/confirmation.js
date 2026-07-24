@@ -17,7 +17,7 @@ if (customer) {
     const orderId = "DHK" + Math.floor(100000 + Math.random() * 900000);
 
     container.innerHTML = `
-
+   </> JavaScript
     // Clear cart after successful order
        localStorage.removeItem("cart");
         <div class="card p-5 shadow">
