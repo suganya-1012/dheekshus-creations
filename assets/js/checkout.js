@@ -49,3 +49,48 @@ Qty : ${item.quantity}
 total.innerHTML="₹"+grandTotal;
 
 }
+document
+    .getElementById("paymentBtn")
+    .addEventListener("click", validateCheckout);
+
+function validateCheckout() {
+
+    const fullName = document.getElementById("fullName").value.trim();
+    const mobile = document.getElementById("mobile").value.trim();
+    const house = document.getElementById("house").value.trim();
+    const street = document.getElementById("street").value.trim();
+    const area = document.getElementById("area").value.trim();
+    const city = document.getElementById("city").value.trim();
+    const state = document.getElementById("state").value.trim();
+    const pincode = document.getElementById("pincode").value.trim();
+
+    if (
+        fullName === "" ||
+        mobile === "" ||
+        house === "" ||
+        street === "" ||
+        area === "" ||
+        city === "" ||
+        state === "" ||
+        pincode === ""
+    ) {
+
+        alert("Please fill all required fields.");
+        return;
+    }
+
+    if (!/^[0-9]{10}$/.test(mobile)) {
+
+        alert("Enter a valid 10-digit mobile number.");
+        return;
+    }
+
+    if (!/^[0-9]{6}$/.test(pincode)) {
+
+        alert("Enter a valid 6-digit pincode.");
+        return;
+    }
+
+    alert("Validation Successful!");
+
+}
