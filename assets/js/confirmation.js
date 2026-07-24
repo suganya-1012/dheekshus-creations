@@ -18,6 +18,8 @@ if (customer) {
 
     container.innerHTML = `
 
+    // Clear cart after successful order
+       localStorage.removeItem("cart");
         <div class="card p-5 shadow">
 
             <h2 class="text-success">
