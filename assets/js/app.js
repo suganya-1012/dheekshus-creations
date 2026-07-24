@@ -85,15 +85,65 @@ function displayProducts(products) {
 
 }
 
-// Temporary cart
-let cartCount = 0;
+// -------------------------
+// Shopping Cart
+// -------------------------
 
 function addToCart(productName) {
 
-    cartCount++;
+    fetch("data/products.json")
+        .then(response => response.json())
+        .then(products => {
 
-    document.getElementById("cart-count").innerText = cartCount;
+            const product = products.find(p => p.name === productName);
 
-    alert(productName + " added to cart.");
+            if (!product) return;
+
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            const existing = cart.find(item => item.id === product.id);
+
+            if (existing) {
+
+                existing.quantity++;
+
+            } else {
+
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
+
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            updateCartCount();
+
+            alert(product.name + " added to cart.");
+
+        });
 
 }
+
+function updateCartCount() {
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    const cartCount = document.getElementById("cart-count");
+
+    if (cartCount) {
+
+        cartCount.innerText = totalItems;
+
+    }
+
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    updateCartCount();
+
+});
