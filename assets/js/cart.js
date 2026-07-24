@@ -1,72 +1,146 @@
-document.addEventListener("DOMContentLoaded", loadCart);
+/*
+=========================================
+Dheekshu's Creations
+Shopping Cart
+=========================================
+*/
 
-function loadCart() {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    updateCart();
 
-    const cartItems = document.getElementById("cart-items");
-    const cartTotal = document.getElementById("cart-total");
+});
+
+function updateCart() {
+
+    const cart = getCart();
+
+    const container = document.getElementById("cart-items");
+
+    const totalElement = document.getElementById("cart-total");
+
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    let grandTotal = 0;
 
     if (cart.length === 0) {
 
-        cartItems.innerHTML = `
-            <div class="alert alert-info">
-                Your cart is empty.
-            </div>
-        `;
+        container.innerHTML = "<h4>Your cart is empty.</h4>";
 
-        cartTotal.innerText = "0";
+        totalElement.innerHTML = "₹0";
+
+        updateCartCount();
+
         return;
-    }
 
-    let html = "";
-    let total = 0;
+    }
 
     cart.forEach(item => {
 
         const itemTotal = item.price * item.quantity;
-        total += itemTotal;
 
-        html += `
-        <div class="card mb-3 shadow-sm">
+        grandTotal += itemTotal;
 
-            <div class="card-body">
+        container.innerHTML += `
 
-                <div class="row align-items-center">
+        <div class="cart-item">
 
-                    <div class="col-md-2">
-                        <img src="${item.image}"
-                             class="img-fluid rounded"
-                             alt="${item.name}">
-                    </div>
+            <img src="${item.image}" class="cart-image">
 
-                    <div class="col-md-4">
-                        <h5>${item.name}</h5>
-                        <p>${item.category}</p>
-                    </div>
+            <div class="cart-details">
 
-                    <div class="col-md-2">
-                        Qty : ${item.quantity}
-                    </div>
+                <h4>${item.name}</h4>
 
-                    <div class="col-md-2">
-                        ₹${item.price}
-                    </div>
-
-                    <div class="col-md-2 fw-bold">
-                        ₹${itemTotal}
-                    </div>
-
-                </div>
+                <p>${item.category}</p>
 
             </div>
 
+            <div class="cart-qty">
+
+                <button onclick="decreaseQty(${item.id})">−</button>
+
+                <span>${item.quantity}</span>
+
+                <button onclick="increaseQty(${item.id})">+</button>
+
+            </div>
+
+            <div class="cart-price">
+                ₹${item.price}
+            </div>
+
+            <div class="cart-total">
+                ₹${itemTotal}
+            </div>
+
+            <button
+                class="btn btn-danger"
+                onclick="removeItem(${item.id})">
+
+                Remove
+
+            </button>
+
         </div>
+
         `;
 
     });
 
-    cartItems.innerHTML = html;
-    cartTotal.innerText = total;
+    totalElement.innerHTML = "₹" + grandTotal;
+
+    updateCartCount();
+
+}
+
+function increaseQty(id) {
+
+    const cart = getCart();
+
+    const item = cart.find(p => p.id === id);
+
+    item.quantity++;
+
+    saveCart(cart);
+
+    updateCart();
+
+}
+
+function decreaseQty(id) {
+
+    const cart = getCart();
+
+    const item = cart.find(p => p.id === id);
+
+    if (item.quantity > 1) {
+
+        item.quantity--;
+
+    } else {
+
+        const index = cart.findIndex(p => p.id === id);
+
+        cart.splice(index, 1);
+
+    }
+
+    saveCart(cart);
+
+    updateCart();
+
+}
+
+function removeItem(id) {
+
+    let cart = getCart();
+
+    cart = cart.filter(item => item.id !== id);
+
+    saveCart(cart);
+
+    updateCart();
 
 }
