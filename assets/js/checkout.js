@@ -91,6 +91,37 @@ function validateCheckout() {
         return;
     }
 
-    alert("Validation Successful!");
+    const customer = {
+
+    name: fullName,
+
+    mobile: mobile,
+
+    email: document.getElementById("email").value.trim(),
+
+    address: {
+
+        house,
+
+        street,
+
+        area,
+
+        city,
+
+        state,
+
+        pincode
+
+    }
+
+};
+
+localStorage.setItem(
+    "customer",
+    JSON.stringify(customer)
+);
+
+window.location.href = "confirmation.html";
 
 }
