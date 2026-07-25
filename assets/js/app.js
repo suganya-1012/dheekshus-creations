@@ -32,7 +32,7 @@ async function loadProducts() {
 // Display product cards
 function displayProducts(products) {
 
-    const container = document.getElementById("featured-products");
+    const container = document.getElementById("products-container");
 
     if (!container) return;
 
