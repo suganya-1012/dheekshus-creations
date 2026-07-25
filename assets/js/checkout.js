@@ -1,62 +1,54 @@
 document.addEventListener("DOMContentLoaded", () => {
+    loadCheckout();
 
-loadCheckout();
-
+    document
+        .getElementById("paymentBtn")
+        .addEventListener("click", validateCheckout);
 });
 
-function loadCheckout(){
+function loadCheckout() {
 
-const cart=getCart();
+    const cart = getCart();
 
-const container=document.getElementById("checkout-items");
+    const container = document.getElementById("checkout-items");
+    const total = document.getElementById("checkout-total");
 
-const total=document.getElementById("checkout-total");
+    let grandTotal = 0;
 
-let grandTotal=0;
+    container.innerHTML = "";
 
-container.innerHTML="";
+    cart.forEach(item => {
 
-cart.forEach(item=>{
+        grandTotal += item.price * item.quantity;
 
-grandTotal+=item.price*item.quantity;
+        container.innerHTML += `
 
-container.innerHTML+=`
+            <div class="d-flex justify-content-between mb-3">
 
-<div class="d-flex justify-content-between mb-3">
+                <div>
+                    <strong>${item.name}</strong><br>
+                    Qty : ${item.quantity}
+                </div>
 
-<div>
+                <div>
+                    ₹${item.price * item.quantity}
+                </div>
 
-<strong>${item.name}</strong>
+            </div>
 
-<br>
+        `;
 
-Qty : ${item.quantity}
+    });
 
-</div>
-
-<div>
-
-₹${item.price*item.quantity}
-
-</div>
-
-</div>
-
-`;
-
-});
-
-total.innerHTML="₹"+grandTotal;
-
+    total.innerHTML = "₹" + grandTotal;
 }
-document
-    .getElementById("paymentBtn")
-    .addEventListener("click", validateCheckout);
 
 function validateCheckout() {
 
     const fullName = document.getElementById("fullName").value.trim();
     const mobile = document.getElementById("mobile").value.trim();
+    const email = document.getElementById("email").value.trim();
+
     const house = document.getElementById("house").value.trim();
     const street = document.getElementById("street").value.trim();
     const area = document.getElementById("area").value.trim();
@@ -74,54 +66,55 @@ function validateCheckout() {
         state === "" ||
         pincode === ""
     ) {
-
         alert("Please fill all required fields.");
         return;
     }
 
     if (!/^[0-9]{10}$/.test(mobile)) {
-
         alert("Enter a valid 10-digit mobile number.");
         return;
     }
 
     if (!/^[0-9]{6}$/.test(pincode)) {
-
         alert("Enter a valid 6-digit pincode.");
         return;
     }
 
-    const customer = {
+    const cart = getCart();
 
-    name: fullName,
+    let grandTotal = 0;
 
-    mobile: mobile,
+    cart.forEach(item => {
+        grandTotal += item.price * item.quantity;
+    });
 
-    email: document.getElementById("email").value.trim(),
+    const order = {
 
-    address: {
+        orderId: "DHK" + Math.floor(Math.random() * 900000 + 100000),
 
-        house,
+        customer: {
 
-        street,
+            name: fullName,
+            mobile: mobile,
+            email: email,
 
-        area,
+            house: house,
+            street: street,
+            area: area,
+            city: city,
+            state: state,
+            pincode: pincode
 
-        city,
+        },
 
-        state,
+        items: cart,
 
-        pincode
+        total: grandTotal
 
-    }
+    };
 
-};
+    localStorage.setItem("order", JSON.stringify(order));
 
-localStorage.setItem(
-    "customer",
-    JSON.stringify(customer)
-);
-
-window.location.href = "confirmation.html";
+    window.location.href = "confirmation.html";
 
 }
