@@ -11,34 +11,34 @@
     "name": "Artificial Foam Jasmine - Premium",
     "category": "Foam Jasmine",
     "price": 399,
-    "image": "assets/images/placeholders/product-placeholder.jpg"
+    "image": "assets/images/jasmine-premium.jpg"
   },
   {
     "id": 3,
     "name": "Artificial Foam Mullai",
     "category": "Foam Mullai",
     "price": 349,
-    "image": "assets/images/placeholders/product-placeholder.jpg"
+    "image": "assets/images/Mullai.jpg"
   },
   {
     "id": 4,
     "name": "Kids Hair Clip Set",
     "category": "Hair Accessories",
     "price": 199,
-    "image": "assets/images/placeholders/product-placeholder.jpg"
+    "image": "assets/images/kids-hairclip.jpg"
   },
   {
     "id": 5,
     "name": "Designer Bangles Set",
     "category": "Bangles",
     "price": 499,
-    "image": "assets/images/placeholders/product-placeholder.jpg"
+    "image": "assets/images/Bangles.jpg"
   },
   {
     "id": 6,
     "name": "Bridal Foam Jasmine",
     "category": "Foam Jasmine",
     "price": 599,
-    "image": "assets/images/placeholders/product-placeholder.jpg"
+    "image": "assets/images/Wedding-jasmine.jpg"
   }
 ]
