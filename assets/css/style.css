@@ -599,3 +599,67 @@ ABOUT SECTION
     box-shadow:0 10px 30px rgba(0,0,0,.08);
 
 }
+
+/* ===========================
+   CATEGORY SECTION
+=========================== */
+
+.categories-section{
+
+    background:#fff;
+
+}
+
+.section-title{
+
+    color:#d63384;
+
+    font-size:2rem;
+
+    font-weight:700;
+
+}
+
+.category-card{
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    padding:30px 15px;
+
+    text-align:center;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.category-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 10px 30px rgba(214,51,132,.25);
+
+}
+
+.category-icon{
+
+    font-size:50px;
+
+    margin-bottom:15px;
+
+}
+
+.category-card h5{
+
+    color:#444;
+
+    font-weight:600;
+
+    margin:0;
+
+}
