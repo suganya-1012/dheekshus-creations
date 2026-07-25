@@ -307,3 +307,295 @@ position:sticky;
 top:100px;
 
 }
+
+/* ===================================================
+   PREMIUM HERO SECTION
+=================================================== */
+
+.hero{
+
+    padding:80px 0;
+
+    background:linear-gradient(135deg,#fff5f8,#ffe9f1);
+
+}
+
+.hero-badge{
+
+    display:inline-block;
+
+    background:#ff4f87;
+
+    color:#fff;
+
+    padding:8px 20px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    margin-bottom:20px;
+
+    font-weight:600;
+
+}
+
+.hero-title{
+
+    font-size:52px;
+
+    font-weight:700;
+
+    line-height:1.2;
+
+    color:#2c2c2c;
+
+}
+
+.hero-title span{
+
+    color:#e91e63;
+
+}
+
+.hero-description{
+
+    font-size:18px;
+
+    color:#666;
+
+    margin:25px 0;
+
+    line-height:1.8;
+
+}
+
+.hero-image{
+
+    max-width:500px;
+
+    width:100%;
+
+    animation:floatImage 4s ease-in-out infinite;
+
+}
+
+@keyframes floatImage{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.hero-btn{
+
+    background:#e91e63;
+
+    color:white;
+
+    padding:14px 35px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    margin-right:15px;
+
+}
+
+.hero-btn:hover{
+
+    background:#d81b60;
+
+    color:white;
+
+}
+
+.hero-outline{
+
+    border:2px solid #e91e63;
+
+    color:#e91e63;
+
+    border-radius:50px;
+
+    padding:14px 35px;
+
+    font-weight:600;
+
+}
+
+.hero-outline:hover{
+
+    background:#e91e63;
+
+    color:white;
+
+}
+
+/* ===========================================
+CATEGORY CARDS
+=========================================== */
+
+.category-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    text-align:center;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.category-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+.category-card h5{
+
+    margin-top:20px;
+
+    font-weight:600;
+
+    color:#444;
+
+    font-size:18px;
+
+}
+
+/* ===========================================
+PRODUCT CARD
+=========================================== */
+
+.product-card{
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+    background:#fff;
+
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
+
+}
+
+.product-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.product-image{
+
+    height:260px;
+
+    width:100%;
+
+    object-fit:cover;
+
+    background:#fafafa;
+
+}
+
+.product-body{
+
+    padding:20px;
+
+}
+
+.product-title{
+
+    font-size:20px;
+
+    font-weight:600;
+
+}
+
+.product-price{
+
+    color:#e91e63;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    margin:15px 0;
+
+}
+
+.btn-add-cart{
+
+    width:100%;
+
+    border:none;
+
+    background:#e91e63;
+
+    color:white;
+
+    padding:12px;
+
+    border-radius:12px;
+
+}
+
+.btn-add-cart:hover{
+
+    background:#c2185b;
+
+}
+
+/* ===========================================
+ABOUT SECTION
+=========================================== */
+
+.about-section{
+
+    background:#fff7fa;
+
+    padding:70px 0;
+
+}
+
+.about-box{
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
